@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.beni.gescartebanque.controllers.loginController">
+   <left>
+      <AnchorPane prefHeight="559.0" prefWidth="456.0" style="-fx-background-color: FAD0C4;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="312.0" fitWidth="289.0" layoutX="84.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/logo-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="108.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connectez-vous à l'excellence bancaire." />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="559.0" prefWidth="536.0" style="-fx-background-color: #D3D3D3;;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="111.0" fitWidth="142.0" layoutX="226.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/mot-de-passe.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="164.0" layoutY="220.0" text="Nom d' Utilisateur :" />
+            <TextField fx:id="txt_username" layoutX="166.0" layoutY="254.0" prefHeight="26.0" prefWidth="310.0" />
+            <Label layoutX="165.0" layoutY="313.0" text="Mot de passe : " />
+            <PasswordField fx:id="txt_password" layoutX="165.0" layoutY="346.0" prefHeight="26.0" prefWidth="313.0" />
+            <ImageView fitHeight="79.0" fitWidth="94.0" layoutX="446.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="55.0" fitWidth="62.0" layoutX="68.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/utilisateur.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="49.0" fitWidth="55.0" layoutX="68.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/cle.png" />
+               </image>
+            </ImageView>
+            <Button alignment="CENTER" layoutX="208.0" layoutY="445.0" mnemonicParsing="false" onAction="#btnValider" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: green;" text="Valider" textFill="#dddddd">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </Button>
+         </children></AnchorPane>
+   </center>
+</BorderPane>

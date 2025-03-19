@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+
+        <RollingFile name="rollingFile" fileName="logs/app.log" filePattern="logs/app-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level: %msg%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+       <Sentry name="Sentry" dsn="https://c8af8e25f43777092e27087a707a6833@o4508879460040704.ingest.us.sentry.io/4508879629582336">
+
+
+       </Sentry>
+
+        <Console name="Console">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="MainFile" fileName="logs/MainFile">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="Console" level="info"/>
+            <AppenderRef ref="MainFile"/>
+            <AppenderRef ref="rollingFile" level="INFO"/>
+            <AppenderRef ref="Sentry" level="WARN"/>
+        </Root>
+    </Loggers>
+</Configuration>
