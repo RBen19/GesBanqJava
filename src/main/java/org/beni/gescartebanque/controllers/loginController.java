@@ -2,12 +2,22 @@ package org.beni.gescartebanque.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.beni.gescartebanque.HelloApplication;
 import org.beni.gescartebanque.RessourceDAO;
+import org.beni.gescartebanque.interfaces.IUtilisateur;
+
+import java.io.IOException;
 
 public class loginController {
+    static final Logger logger = LogManager.getLogger(loginController.class);
+
     @FXML
     private PasswordField txt_password;
 
@@ -37,11 +47,20 @@ public class loginController {
             return;
         }else {
             if(RessourceDAO.UserDao().GetUtilisateur(txt_username.getText(),txt_password.getText())!=null) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Bienvenue");
-                alert.setHeaderText(null);
-                alert.setContentText("Bienvenue "+txt_username.getText());
-                alert.show();
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("Bienvenue");
+//                alert.setHeaderText(null);
+//                alert.setContentText("Bienvenue "+txt_username.getText());
+//                alert.show();
+
+                try {
+                    HelloApplication.change(new Stage(),"dashbordAdmin");
+                    Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    currentStage.close();  //
+
+                } catch (IOException e) {
+                 logger.error("erreur lors du changement de fenetre de login vers dashbord {}",e.getMessage());
+                }
             }
             System.out.println("helloooooooooooo");
         }

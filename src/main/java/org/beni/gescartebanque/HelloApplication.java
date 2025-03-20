@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.beni.gescartebanque.services.JpaUtils;
 import org.beni.gescartebanque.services.UtilsFonction;
+import org.controlsfx.tools.Utils;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -32,6 +33,8 @@ public class HelloApplication extends Application {
         System.out.println(testSalt);
         String hashedPassword = UtilsFonction.hashPassword("passer", testSalt);
         System.out.println(hashedPassword);
+
+       // UtilsFonction.sendUsernameAndPasswordByMail("RBEN19","passer","bonmerciel@gmail.com");
 
         JpaUtils.getEm();
         launch();

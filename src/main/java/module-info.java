@@ -12,6 +12,7 @@ module org.beni.gescartebanque {
     requires static lombok;
     requires org.apache.logging.log4j;
     requires jdk.compiler;
+    requires jakarta.mail;
     //requires eu.hansolo.tilesfx;
     opens org.beni.gescartebanque.entities to org.hibernate.orm.core;
     opens org.beni.gescartebanque to javafx.fxml;
