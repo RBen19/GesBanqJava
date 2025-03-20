@@ -13,6 +13,16 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="tb_client")
+@NamedQueries({
+        @NamedQuery(
+                name = "Client.findByUsername",
+                query = "SELECT c FROM Client c WHERE c.username=:username"
+        ),
+        @NamedQuery(
+                name = "Client.findByEmail",
+                query = "SELECT c FROM Client c WHERE  c.email=:email"
+        )
+})
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +34,7 @@ public class Client {
     @Column(length = 100)
     private String prenom;
 
-    @Column(length = 100)
+    @Column(length = 100,unique=true)
     private String email;
 
     @Column(length = 30)
@@ -42,7 +52,7 @@ public class Client {
     @Column(length = 200)
     private String password;
 
-    @Column
+    @Column(length = 40,unique=true)
     private String username;
     @Column(length = 200)
     private String tmpPassword;

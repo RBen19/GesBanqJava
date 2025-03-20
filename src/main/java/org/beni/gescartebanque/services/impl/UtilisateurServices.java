@@ -1,4 +1,4 @@
-package org.beni.gescartebanque.services;
+package org.beni.gescartebanque.services.impl;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -7,6 +7,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.beni.gescartebanque.entities.Utilisateur;
 import org.beni.gescartebanque.interfaces.IUtilisateur;
+import org.beni.gescartebanque.services.JpaUtils;
+import org.beni.gescartebanque.services.UtilsFonction;
 
 import java.util.List;
 

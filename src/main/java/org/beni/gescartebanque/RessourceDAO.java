@@ -1,8 +1,7 @@
 package org.beni.gescartebanque;
 
-import org.beni.gescartebanque.entities.Utilisateur;
 import org.beni.gescartebanque.interfaces.IUtilisateur;
-import org.beni.gescartebanque.services.UtilisateurServices;
+import org.beni.gescartebanque.services.impl.UtilisateurServices;
 
 public class  RessourceDAO {
 
