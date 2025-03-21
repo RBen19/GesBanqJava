@@ -10,9 +10,11 @@ module org.beni.gescartebanque {
     requires org.kordamp.bootstrapfx.core;
     requires jakarta.persistence;
     requires static lombok;
-    requires org.apache.logging.log4j;
+ //   requires org.apache.logging.log4j;
     requires jdk.compiler;
+    requires ch.qos.logback.classic;
     requires jakarta.mail;
+    requires org.slf4j;
     //requires eu.hansolo.tilesfx;
     opens org.beni.gescartebanque.entities to org.hibernate.orm.core;
     opens org.beni.gescartebanque to javafx.fxml;

@@ -7,16 +7,18 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 import org.beni.gescartebanque.HelloApplication;
 import org.beni.gescartebanque.RessourceDAO;
 import org.beni.gescartebanque.interfaces.IUtilisateur;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
 public class loginController {
-    static final Logger logger = LogManager.getLogger(loginController.class);
+
+    static Logger logger = LoggerFactory.getLogger(HelloApplication.class);
 
     @FXML
     private PasswordField txt_password;

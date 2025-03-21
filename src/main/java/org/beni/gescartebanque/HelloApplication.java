@@ -1,15 +1,17 @@
 package org.beni.gescartebanque;
 
+import ch.qos.logback.classic.Logger;
 import com.sun.tools.javac.Main;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 import org.beni.gescartebanque.services.JpaUtils;
 import org.beni.gescartebanque.services.UtilsFonction;
 import org.controlsfx.tools.Utils;
+import org.slf4j.LoggerFactory;
+
 
 import java.io.IOException;
 import java.util.Base64;
@@ -29,6 +31,9 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+          Logger logger = (Logger) LoggerFactory.getLogger(HelloApplication.class);
+          logger.info("de log4j a logback");
+
         String testSalt = UtilsFonction.generateSalt();
         System.out.println(testSalt);
         String hashedPassword = UtilsFonction.hashPassword("passer", testSalt);

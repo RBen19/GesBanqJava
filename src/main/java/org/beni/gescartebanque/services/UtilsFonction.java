@@ -3,8 +3,10 @@ package org.beni.gescartebanque.services;
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.beni.gescartebanque.HelloApplication;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -17,7 +19,7 @@ import java.util.Random;
 public class UtilsFonction {
 
 
-    static final Logger logger = LogManager.getLogger(UtilsFonction.class);
+   static   Logger logger = LoggerFactory.getLogger(HelloApplication.class);
 
     public  static String  generateSalt(){
         SecureRandom random = new SecureRandom();
