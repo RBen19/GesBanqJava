@@ -21,7 +21,8 @@ import java.util.Date;
         @NamedQuery(
                 name = "Client.findByEmail",
                 query = "SELECT c FROM Client c WHERE  c.email=:email"
-        )
+        ),
+
 })
 public class Client {
     @Id

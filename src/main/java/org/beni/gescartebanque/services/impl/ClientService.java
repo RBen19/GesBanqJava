@@ -4,6 +4,7 @@ import ch.qos.logback.classic.Logger;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import javafx.scene.control.Alert;
+import lombok.extern.slf4j.Slf4j;
 import org.beni.gescartebanque.entities.Client;
 import org.beni.gescartebanque.interfaces.Iclient;
 import org.beni.gescartebanque.services.JpaUtils;
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 public class ClientService implements Iclient {
     static Logger logger = (Logger) LoggerFactory.getLogger(ClientService.class);
 
@@ -88,5 +90,90 @@ public class ClientService implements Iclient {
 
         }
         return isCreated;
+    }
+
+    @Override
+    public Client getClientByLogin(String txt_login) {
+        EntityManager entityManager = JpaUtils.getEm();
+        List<Client> verifClient = null;
+        Client client =null;
+       try{
+           verifClient = entityManager.createNamedQuery("Client.findByUsername",Client.class)
+                   .setParameter("username",txt_login)
+                   .getResultList();
+           if(verifClient.isEmpty()){
+               logger.info("aucun client n'a été trouvé");
+              Alert alert = new Alert(Alert.AlertType.ERROR);
+              alert.setTitle("Erreur");
+              alert.setHeaderText(null);
+              alert.setContentText("utilisateur introuvable");
+              alert.showAndWait();
+
+               //client = null;
+           }else {
+               client = verifClient.get(0);
+               logger.info("le client avec pour login ");
+           }
+       } catch (Exception e) {
+           logger.error("erreur  {} lors de la récupération du client ligne 118 ClientService ",e.getMessage());
+
+       }
+
+        return  client;
+    }
+
+    @Override
+    public Client connexionClient(String txt_login, String txt_password) {
+        Client client = getClientByLogin(txt_login);
+        String salt;
+        if (client!=null) {
+
+            if(client.getPremiere_connexion()==0){
+                salt = client.getSalt();
+
+
+                if(!UtilsFonction.hashPassword(txt_password,salt).equals(client.getTmpPassword())){
+                  client = null;
+                  logger.error("ceci est la première connexion et le mot de passe ne correspond pas à celui qui vous a été envoyé");
+                 Alert alert = new Alert(Alert.AlertType.ERROR);
+                 alert.setTitle("Erreur");
+                 alert.setHeaderText(null);
+                 alert.setContentText("le mot de passe saisie ne correspond pas au mot de passe qui vous a été envoyé");
+                 alert.showAndWait();
+                 return client;
+                }else {
+                    logger.info("le client avec le login  "+txt_login+" c'est connecté pour la première fois ");
+                    client.setPremiere_connexion(1);
+                    return client;
+
+                }
+
+
+            }else{
+
+
+                salt = client.getSalt();
+                if(!UtilsFonction.hashPassword(txt_password,salt).equals(client.getPassword())){
+                    logger.error("le mot de passe saisie ne correspond pas ");
+                    client = null;
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Erreur");
+                    alert.setHeaderText(null);
+                    alert.setContentText("le mot de passe incorrect");
+                    alert.showAndWait();
+                    return client;
+                }else {
+
+                  logger.info("le client est bien authentifié");
+                  return  client;
+
+                }
+
+            }
+        }else {
+            logger.error("le client n'a pas été trouver lors de la connexion ");
+            client = null;
+        }
+        return client;
     }
 }

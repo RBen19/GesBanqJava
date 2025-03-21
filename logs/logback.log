@@ -273,3 +273,186 @@
 2025-03-21 03:56:58,775 ERROR [JavaFX Application Thread]  l'eereur 535-5.7.8 Username and Password not accepted. For more information, go to
 535 5.7.8  https://support.google.com/mail/?p=BadCredentials a640c23a62f3a-ac3ef8d3d38sm70576866b.39 - gsmtp
  est survenue lors de l'envoie du mail pour benirosinard19@gmail.com
+2025-03-21 04:12:35,858 INFO [main] de log4j a logback
+2025-03-21 04:12:35,987 INFO [main] HHH000204: Processing PersistenceUnitInfo [name: GestionCarteBancairePU]
+2025-03-21 04:12:36,049 INFO [main] HHH000412: Hibernate ORM core version [WORKING]
+2025-03-21 04:12:36,053 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-03-21 04:12:36,054 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-03-21 04:12:36,055 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-03-21 04:12:36,056 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-03-21 04:12:36,083 INFO [main] HHH000026: Second-level cache disabled
+2025-03-21 04:12:36,229 WARN [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2025-03-21 04:12:36,545 WARN [main] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21 04:12:36,563 INFO [main] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost/GestionCarteBancaire]
+	Database driver: org.postgresql.Driver
+	Database version: 16.8
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-03-21 04:12:37,561 INFO [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-21 04:12:37,825 INFO [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@103478b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-03-21 04:13:34,837 INFO [main] de log4j a logback
+2025-03-21 04:13:34,946 INFO [main] HHH000204: Processing PersistenceUnitInfo [name: GestionCarteBancairePU]
+2025-03-21 04:13:34,978 INFO [main] HHH000412: Hibernate ORM core version [WORKING]
+2025-03-21 04:13:34,982 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-03-21 04:13:34,983 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-03-21 04:13:34,983 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-03-21 04:13:34,984 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-03-21 04:13:35,005 INFO [main] HHH000026: Second-level cache disabled
+2025-03-21 04:13:35,158 WARN [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2025-03-21 04:13:35,469 WARN [main] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21 04:13:35,486 INFO [main] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost/GestionCarteBancaire]
+	Database driver: org.postgresql.Driver
+	Database version: 16.8
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-03-21 04:13:36,446 INFO [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-21 04:13:36,683 INFO [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@103478b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-03-21 04:13:51,306 ERROR [JavaFX Application Thread] erreur lors de la connexion No result found for query [SELECT u FROM Utilisateur u WHERE u.login = :login]
+2025-03-21 04:15:24,194 INFO [main] de log4j a logback
+2025-03-21 04:15:24,286 INFO [main] HHH000204: Processing PersistenceUnitInfo [name: GestionCarteBancairePU]
+2025-03-21 04:15:24,314 INFO [main] HHH000412: Hibernate ORM core version [WORKING]
+2025-03-21 04:15:24,318 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-03-21 04:15:24,319 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-03-21 04:15:24,319 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-03-21 04:15:24,320 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-03-21 04:15:24,338 INFO [main] HHH000026: Second-level cache disabled
+2025-03-21 04:15:24,468 WARN [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2025-03-21 04:15:24,754 WARN [main] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21 04:15:24,772 INFO [main] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost/GestionCarteBancaire]
+	Database driver: org.postgresql.Driver
+	Database version: 16.8
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-03-21 04:15:25,793 INFO [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-21 04:15:26,067 INFO [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@103478b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-03-21 04:15:40,807 ERROR [JavaFX Application Thread] erreur lors de la connexion No result found for query [SELECT u FROM Utilisateur u WHERE u.login = :login]
+2025-03-21 04:17:27,661 INFO [main] de log4j a logback
+2025-03-21 04:17:27,754 INFO [main] HHH000204: Processing PersistenceUnitInfo [name: GestionCarteBancairePU]
+2025-03-21 04:17:27,786 INFO [main] HHH000412: Hibernate ORM core version [WORKING]
+2025-03-21 04:17:27,790 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-03-21 04:17:27,791 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-03-21 04:17:27,791 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-03-21 04:17:27,792 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-03-21 04:17:27,814 INFO [main] HHH000026: Second-level cache disabled
+2025-03-21 04:17:27,957 WARN [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2025-03-21 04:17:28,274 WARN [main] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21 04:17:28,294 INFO [main] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost/GestionCarteBancaire]
+	Database driver: org.postgresql.Driver
+	Database version: 16.8
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-03-21 04:17:29,336 INFO [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-21 04:17:29,582 INFO [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@270f7b4d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-03-21 04:17:47,453 ERROR [JavaFX Application Thread] erreur lors de la connexion No result found for query [SELECT u FROM Utilisateur u WHERE u.login = :login]
+2025-03-21 23:28:36,460 INFO [main] de log4j a logback
+2025-03-21 23:28:36,628 INFO [main] HHH000204: Processing PersistenceUnitInfo [name: GestionCarteBancairePU]
+2025-03-21 23:28:36,687 INFO [main] HHH000412: Hibernate ORM core version [WORKING]
+2025-03-21 23:28:36,695 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-03-21 23:28:36,698 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-03-21 23:28:36,699 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-03-21 23:28:36,701 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-03-21 23:28:36,756 INFO [main] HHH000026: Second-level cache disabled
+2025-03-21 23:28:37,027 WARN [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2025-03-21 23:28:37,875 WARN [main] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21 23:28:37,904 INFO [main] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost/GestionCarteBancaire]
+	Database driver: org.postgresql.Driver
+	Database version: 16.8
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-03-21 23:28:39,699 INFO [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-21 23:28:40,214 INFO [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@515c732d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-03-21 23:28:54,314 ERROR [JavaFX Application Thread] erreur Specified result type [org.beni.gescartebanque.entities.Client] did not match Query selection type [org.beni.gescartebanque.entities.Utilisateur] - multiple selections: use Tuple or array 
+2025-03-21 23:28:54,315 ERROR [JavaFX Application Thread] le client n'a pas été trouver lors de la connexion 
+2025-03-21 23:36:42,075 INFO [main] de log4j a logback
+2025-03-21 23:36:42,231 INFO [main] HHH000204: Processing PersistenceUnitInfo [name: GestionCarteBancairePU]
+2025-03-21 23:36:42,289 INFO [main] HHH000412: Hibernate ORM core version [WORKING]
+2025-03-21 23:36:42,300 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-03-21 23:36:42,304 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-03-21 23:36:42,304 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-03-21 23:36:42,306 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-03-21 23:36:42,353 INFO [main] HHH000026: Second-level cache disabled
+2025-03-21 23:36:42,613 WARN [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2025-03-21 23:36:43,162 WARN [main] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21 23:36:43,194 INFO [main] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost/GestionCarteBancaire]
+	Database driver: org.postgresql.Driver
+	Database version: 16.8
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-03-21 23:37:50,432 INFO [main] de log4j a logback
+2025-03-21 23:37:50,581 INFO [main] HHH000204: Processing PersistenceUnitInfo [name: GestionCarteBancairePU]
+2025-03-21 23:37:50,629 INFO [main] HHH000412: Hibernate ORM core version [WORKING]
+2025-03-21 23:37:50,635 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-03-21 23:37:50,637 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-03-21 23:37:50,638 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-03-21 23:37:50,640 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-03-21 23:37:50,682 INFO [main] HHH000026: Second-level cache disabled
+2025-03-21 23:37:50,947 WARN [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2025-03-21 23:37:51,463 WARN [main] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21 23:37:51,492 INFO [main] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost/GestionCarteBancaire]
+	Database driver: org.postgresql.Driver
+	Database version: 16.8
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-03-21 23:38:35,900 INFO [main] de log4j a logback
+2025-03-21 23:38:36,058 INFO [main] HHH000204: Processing PersistenceUnitInfo [name: GestionCarteBancairePU]
+2025-03-21 23:38:36,109 INFO [main] HHH000412: Hibernate ORM core version [WORKING]
+2025-03-21 23:38:36,118 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-03-21 23:38:36,120 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-03-21 23:38:36,121 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-03-21 23:38:36,123 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-03-21 23:38:36,166 INFO [main] HHH000026: Second-level cache disabled
+2025-03-21 23:38:36,400 WARN [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2025-03-21 23:38:36,906 WARN [main] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21 23:38:36,933 INFO [main] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost/GestionCarteBancaire]
+	Database driver: org.postgresql.Driver
+	Database version: 16.8
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-03-21 23:38:38,556 INFO [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-21 23:38:38,991 INFO [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5f82209e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-03-21 23:39:09,550 INFO [JavaFX Application Thread] le client avec pour login 
+2025-03-21 23:39:09,552 INFO [JavaFX Application Thread] le client avec le login  Rben c'est connecté pour la première fois 
+2025-03-21 23:39:45,259 INFO [main] de log4j a logback
+2025-03-21 23:39:45,431 INFO [main] HHH000204: Processing PersistenceUnitInfo [name: GestionCarteBancairePU]
+2025-03-21 23:39:45,502 INFO [main] HHH000412: Hibernate ORM core version [WORKING]
+2025-03-21 23:39:45,510 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.user], use [jakarta.persistence.jdbc.user] instead
+2025-03-21 23:39:45,512 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.password], use [jakarta.persistence.jdbc.password] instead
+2025-03-21 23:39:45,513 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.url], use [jakarta.persistence.jdbc.url] instead
+2025-03-21 23:39:45,515 WARN [main] HHH90000021: Encountered deprecated setting [javax.persistence.jdbc.driver], use [jakarta.persistence.jdbc.driver] instead
+2025-03-21 23:39:45,550 INFO [main] HHH000026: Second-level cache disabled
+2025-03-21 23:39:45,758 WARN [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2025-03-21 23:39:46,319 WARN [main] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-21 23:39:46,345 INFO [main] HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost/GestionCarteBancaire]
+	Database driver: org.postgresql.Driver
+	Database version: 16.8
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-03-21 23:39:47,986 INFO [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-21 23:39:48,435 INFO [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@515c732d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.

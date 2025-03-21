@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 import org.beni.gescartebanque.HelloApplication;
 import org.beni.gescartebanque.RessourceDAO;
+import org.beni.gescartebanque.entities.Client;
 import org.beni.gescartebanque.interfaces.IUtilisateur;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,6 +53,7 @@ public class loginController {
 
     @FXML
     void btnValider(ActionEvent event) {
+        Client client;
         if( (txt_password.getText().isBlank()|| txt_username.getText().isBlank()) || (txt_password.getLength()<8) || (txt_username.getLength()<3)) {
             System.out.println("Erreur de validation");
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -61,22 +63,59 @@ public class loginController {
             alert.showAndWait();
             return;
         }else {
-            if(RessourceDAO.UserDao().GetUtilisateur(txt_username.getText(),txt_password.getText())!=null) {
+            if(txt_username.getText().startsWith("@ebk") && txt_username.getText().endsWith("@dk")) {
+                // utilisateur gestionnaire admin etc...
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Erreur");
+                alert.setHeaderText(null);
+                alert.setContentText("admin");
+                alert.showAndWait();
+
+                if(RessourceDAO.UserDao().GetUtilisateur(txt_username.getText(),txt_password.getText())!=null) {
 //                Alert alert = new Alert(Alert.AlertType.INFORMATION);
 //                alert.setTitle("Bienvenue");
 //                alert.setHeaderText(null);
 //                alert.setContentText("Bienvenue "+txt_username.getText());
 //                alert.show();
 
-                try {
-                    HelloApplication.change(new Stage(),"dashbordAdmin");
-                    Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    currentStage.close();  //
+                    try {
+                        HelloApplication.change(new Stage(),"dashbordAdmin");
+                        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        currentStage.close();  //
 
-                } catch (IOException e) {
-                 logger.error("erreur lors du changement de fenetre de login vers dashbord {}",e.getMessage());
+                    } catch (IOException e) {
+                        logger.error("erreur lors du changement de fenetre de login vers dashbord {}",e.getMessage());
+                    }
                 }
+
+            }else{
+
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("Erreur");
+//                alert.setHeaderText(null);
+//                alert.setContentText("client");
+//                alert.showAndWait();
+              //  client = RessourceDAO.ClientDao().getClientByLogin(txt_username.getText());
+              client =   RessourceDAO.ClientDao().connexionClient(txt_username.getText(),txt_password.getText());
+              if(client!=null) {
+                  Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                  alert2.setTitle("Erreur");
+                  alert2.setHeaderText(null);
+                  alert2.setContentText("client");
+                  alert2.showAndWait();
+              }else{
+                  Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+                  alert1.setTitle("Erreur");
+                  alert1.setHeaderText(null);
+                  alert1.setContentText("erreur lors de la connexion");
+                  alert1.showAndWait();
+
+              }
+
+
             }
+
+
             System.out.println("helloooooooooooo");
         }
     }
