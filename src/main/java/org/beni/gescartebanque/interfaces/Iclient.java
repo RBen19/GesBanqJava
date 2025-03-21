@@ -3,5 +3,8 @@ package org.beni.gescartebanque.interfaces;
 import org.beni.gescartebanque.entities.Client;
 
 public interface Iclient {
-    Boolean CreateClient(Client client);
+    Boolean CreateClient(String txt_addresse_client,String txt_email_client,
+                         String txt_nom_client,String txt_prenom_client,
+                         String txt_telephone_client,
+                         String txt_username_client);
 }

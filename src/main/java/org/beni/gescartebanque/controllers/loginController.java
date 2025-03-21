@@ -37,6 +37,19 @@ public class loginController {
 
     }
 
+
+
+    @FXML
+    void gotoRegister(ActionEvent event) {
+        try {
+            HelloApplication.change(new Stage(),"clientRegister");
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+        } catch (Exception e) {
+            logger.error("l'erreur {} est survenue lors du changement de fenetre de login vers register ",e.getLocalizedMessage());
+        }
+    }
+
     @FXML
     void btnValider(ActionEvent event) {
         if( (txt_password.getText().isBlank()|| txt_username.getText().isBlank()) || (txt_password.getLength()<8) || (txt_username.getLength()<3)) {

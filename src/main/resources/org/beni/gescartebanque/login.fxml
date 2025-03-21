@@ -47,11 +47,12 @@
                   <Image url="@../../../assets/cle.png" />
                </image>
             </ImageView>
-            <Button alignment="CENTER" layoutX="208.0" layoutY="445.0" mnemonicParsing="false" onAction="#btnValider" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: green;" text="Valider" textFill="#dddddd">
+            <Button alignment="CENTER" layoutX="109.0" layoutY="448.0" mnemonicParsing="false" onAction="#btnValider" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: green;" text="Valider" textFill="#dddddd">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </Button>
+            <Button layoutX="322.0" layoutY="446.0" mnemonicParsing="false" onAction="#gotoRegister" prefHeight="37.0" prefWidth="156.0" style="-fx-background-color: FAD0C4;" text="Creer Un compte" />
          </children></AnchorPane>
    </center>
 </BorderPane>
