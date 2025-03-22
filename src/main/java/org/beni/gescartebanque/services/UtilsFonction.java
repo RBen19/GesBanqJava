@@ -94,6 +94,54 @@ public class UtilsFonction {
 
         return result;
     }
+    public static boolean sendMessageBYMail(String messageTosend,String destinataire) {
+        boolean result = false;
+        String from = "benirosinard19@gmail.com";
+        String host = "smtp.gmail.com";
+
+
+        Properties properties = System.getProperties();
+        properties.setProperty("mail.smtp.host", host);
+        properties.setProperty("mail.smtp.port", "587");
+        properties.setProperty("mail.smtp.auth", "true");
+        properties.setProperty("mail.smtp.starttls.enable", "true");
+
+
+        final String hostMail = "benirosinard19@gmail.com";
+        final String hostPassword = "hrda ikyz oqui hncf";
+
+
+        Session session = Session.getInstance(properties, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(hostMail, hostPassword);
+            }
+        });
+
+        try {
+            MimeMessage message = new MimeMessage(session);
+
+            message.setFrom(new InternetAddress(from));
+
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinataire));
+
+            message.setSubject("E-Banque Senegal");
+
+            message.setText(messageTosend);
+
+            Transport.send(message);
+
+            System.out.println("Email envoyé avec succès.");
+            result = true;
+
+        } catch (MessagingException mex) {
+            logger.error(" l'eereur {} est survenue lors de l'envoie du mail pour "+ destinataire +"",mex.getMessage());
+
+        }
+
+        return result;
+
+
+    }
     private static int calculateLuhnCheckDigit(String number) {
         int sum = 0;
         boolean alternate = false;

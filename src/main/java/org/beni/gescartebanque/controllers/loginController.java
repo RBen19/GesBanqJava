@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import org.beni.gescartebanque.HelloApplication;
+import org.beni.gescartebanque.Ressource;
 import org.beni.gescartebanque.RessourceDAO;
 import org.beni.gescartebanque.entities.Client;
 import org.beni.gescartebanque.interfaces.IUtilisateur;
@@ -72,30 +73,20 @@ public class loginController {
                 alert.showAndWait();
 
                 if(RessourceDAO.UserDao().GetUtilisateur(txt_username.getText(),txt_password.getText())!=null) {
-//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//                alert.setTitle("Bienvenue");
-//                alert.setHeaderText(null);
-//                alert.setContentText("Bienvenue "+txt_username.getText());
-//                alert.show();
 
                     try {
+                        // dashbordAdmin
                         HelloApplication.change(new Stage(),"dashbordAdmin");
                         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         currentStage.close();  //
 
                     } catch (IOException e) {
-                        logger.error("erreur lors du changement de fenetre de login vers dashbord {}",e.getMessage());
+                        logger.error("erreur lors du changement de fenetre de login vers dashbordAdmin {}",e.getMessage());
                     }
                 }
 
             }else{
 
-//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//                alert.setTitle("Erreur");
-//                alert.setHeaderText(null);
-//                alert.setContentText("client");
-//                alert.showAndWait();
-              //  client = RessourceDAO.ClientDao().getClientByLogin(txt_username.getText());
               client =   RessourceDAO.ClientDao().connexionClient(txt_username.getText(),txt_password.getText());
               if(client!=null) {
                   Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
@@ -103,12 +94,25 @@ public class loginController {
                   alert2.setHeaderText(null);
                   alert2.setContentText("client");
                   alert2.showAndWait();
+
+                  try {
+                      HelloApplication.change(new Stage(),"dashboardClient");
+                      Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                      Ressource.nomClient = client.getUsername();
+                      Ressource.idClient = client.getIdCLient();
+                      System.out.println(Ressource.nomClient);
+                      currentStage.close();
+                  } catch (Exception e) {
+                      logger.error("erreur lors du changement de fenetre de login vers dashbordClient {}",e.getMessage());
+                  }
               }else{
+                  logger.error("erreur lors de la connexion car le client avec le login "+txt_username+" n'a pas été trouvé");
                   Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
                   alert1.setTitle("Erreur");
                   alert1.setHeaderText(null);
                   alert1.setContentText("erreur lors de la connexion");
                   alert1.showAndWait();
+
 
               }
 

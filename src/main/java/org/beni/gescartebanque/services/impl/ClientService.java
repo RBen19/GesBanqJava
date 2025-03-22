@@ -124,6 +124,7 @@ public class ClientService implements Iclient {
 
     @Override
     public Client connexionClient(String txt_login, String txt_password) {
+        EntityManager entityManager = JpaUtils.getEm();
         Client client = getClientByLogin(txt_login);
         String salt;
         if (client!=null) {
@@ -143,7 +144,17 @@ public class ClientService implements Iclient {
                  return client;
                 }else {
                     logger.info("le client avec le login  "+txt_login+" c'est connecté pour la première fois ");
-                    client.setPremiere_connexion(1);
+
+                   try
+                   {
+                       entityManager.getTransaction().begin();
+                       client.setPremiere_connexion(1);
+                       entityManager.merge(client);
+                       entityManager.flush();
+                       entityManager.getTransaction().commit();
+                   } catch (Exception e) {
+                       logger.error("erreur lors du changement de statut première connexion du client  avec le login  "+txt_login+" "+e.getMessage());
+                   }
                     return client;
 
                 }

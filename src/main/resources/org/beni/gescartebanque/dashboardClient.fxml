@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="802.0" prefWidth="1275.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.beni.gescartebanque.DashboardClient">
+<AnchorPane prefHeight="802.0" prefWidth="1275.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.beni.gescartebanque.controllers.DashboardClientController">
    <children>
       <AnchorPane layoutX="-3.0" layoutY="1.0" prefHeight="802.0" prefWidth="345.0" style="-fx-background-color: FAD0C4;">
          <children>

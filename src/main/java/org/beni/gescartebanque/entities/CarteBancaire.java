@@ -34,4 +34,8 @@ public class CarteBancaire {
     private Client client;
     @Column
     private double cashback;
+    @Column
+    private String pin;
+    @Column
+    private String salt;
 }
