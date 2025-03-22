@@ -54,6 +54,17 @@ public class DashboardClientController implements Initializable {
     @FXML
     void btn_historique(ActionEvent event) {
 
+        try{
+         // Stage stage = (Stage)  lbl_nom_client.getScene().getWindow();
+            HelloApplication.change(new Stage(),"ListViewTransaction");
+          //  HelloApplication.change(new Stage(),"ListTransaction");
+
+        } catch (Exception e) {
+            Throwable cause = e.getCause();
+            cause.printStackTrace();
+            //  logger.error("erreur lors du changement de screen entre dashboardclient et Historique {}",e.getMessage());
+        }
+
     }
 
     @FXML
@@ -86,5 +97,15 @@ public class DashboardClientController implements Initializable {
 //            System.out.println("nulllllllll");
 //        }
         lbl_nom_client.setText("Salut");
+    }
+
+    @FXML
+    void gotoPaiement(ActionEvent event) {
+       try
+       {
+           HelloApplication.change(new Stage(),"paiement");
+       } catch (Exception e) {
+           logger.error("desh client to paiement {}",e.getMessage());
+       }
     }
 }

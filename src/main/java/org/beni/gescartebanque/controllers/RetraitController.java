@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.beni.gescartebanque.Ressource;
 import org.beni.gescartebanque.RessourceDAO;
+import org.beni.gescartebanque.services.UtilsFonction;
 
 public class RetraitController {
     @FXML
@@ -19,7 +20,19 @@ public class RetraitController {
 
     @FXML
     void btn_valider_retrait_action(ActionEvent event) {
+        double montant_retirer = Double.parseDouble(txt_montant_retirer.getText());
+        RessourceDAO.CarteBancaireDao().retraitArgent(Ressource.idClient,txt_code_pin.getText(),montant_retirer);
+    }
 
-        RessourceDAO.CarteBancaireDao().retraitArgent(Ressource.idClient,txt_code_pin.getText(),1000);
+    @FXML
+    private TextField txt_code_otp;
+
+    @FXML
+    void confirmer_avec_otp(ActionEvent event) {
+        if(txt_code_otp.getText().isEmpty()){
+            UtilsFonction.messageError("vous ne pouvez pas saisir un code OTP vide","impossible");
+            return;
+        }
+        RessourceDAO.CarteBancaireDao().confirmerRetrait(Ressource.idClient,txt_code_otp.getText());
     }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="732.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.beni.gescartebanque.controllers.TransactionController">
+   <children>
+      <TableView fx:id="tblTransaction" layoutX="46.0" layoutY="150.0" prefHeight="519.0" prefWidth="1049.0">
+        <columns>
+          <TableColumn fx:id="refTransaction" prefWidth="150.0" text="Référence Transaction" />
+          <TableColumn minWidth="0.0" prefWidth="0.0" text="C2" />
+<!--            <TableColumn fx:id="dateTransaction" prefWidth="75.0" text="Date" />-->
+<!--            <TableColumn fx:id="typeTransaction" prefWidth="75.0" text="Type" />-->
+<!--            <TableColumn fx:id="beneficiareTrasaction" prefWidth="150.0" text="Beneficaire" />-->
+<!--            <TableColumn fx:id="montant_transaction" prefWidth="150.0" text="Montant" />-->
+<!--            <TableColumn fx:id="statut_transaction" prefWidth="150.0" text="Statut" />-->
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -20,6 +20,7 @@
                </font>
             </Label>
             <Button layoutX="8.0" layoutY="476.0" mnemonicParsing="false" onAction="#btn_gerer_ma_carte" prefHeight="51.0" prefWidth="338.0" text="Bloquer/Débloquer la carte" />
+            <Button layoutY="574.0" mnemonicParsing="false" onAction="#gotoPaiement" prefHeight="60.0" prefWidth="338.0" text="Paiement" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="ancor_parent" layoutX="342.0" layoutY="3.0" prefHeight="790.0" prefWidth="937.0" />

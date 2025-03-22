@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 @Entity
 @Data
@@ -41,4 +42,16 @@ public class Transaction {
     private String codeTransaction;
     @Column(length = 200)
     private String codeBeneficiare;
+
+    @Override
+    public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // Format de date
+        return "Transaction{" +
+                "date_transaction=" + (date_transaction != null ? sdf.format(date_transaction) : "null") +
+                ", status='" + status + '\'' +
+                ", codeBeneficiare='" + codeBeneficiare + '\'' +
+                ", operation='" + operation + '\'' +
+                ", montant=" + montant +
+                '}';
+    }
 }

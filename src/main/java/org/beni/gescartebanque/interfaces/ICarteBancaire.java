@@ -9,4 +9,6 @@ public interface ICarteBancaire {
     Boolean bloquerDebloquerCarteBancaire(Long idClient,String pin);
     Boolean retraitArgent(Long idClient,String pin,double montant);
     Boolean confirmerRetrait(Long idClient,String codeOTP);
+    Boolean paiement(Long idClient,String pin,double montant,String beneficiate);
+    Boolean confirmerPaiement(Long idClient,String codeOTP);
 }

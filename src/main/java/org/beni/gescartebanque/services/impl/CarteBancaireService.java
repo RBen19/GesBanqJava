@@ -277,6 +277,146 @@ public class CarteBancaireService implements ICarteBancaire {
                 UtilsFonction.sendMessageBYMail("votre rertait a bien été effectué votre nouveau solde est de  : " +solde,c.getEmail());
                 isDone = true;
 
+
+
+
+            }
+        }
+        return isDone;
+    }
+
+
+    @Override
+    public Boolean paiement(Long idClient, String pin, double montant, String beneficiate) {
+        boolean isDone = false;
+        CarteBancaire cb;
+        EntityManager entityManager = JpaUtils.getEm();
+        Transaction transaction = new Transaction() ;
+        AuthTransaction authTransaction = new AuthTransaction();
+        String salt,codeTransaction,codeOTP;
+
+
+
+        Date currentUtilDate = new Date();
+        java.sql.Date currentSqlDate = new java.sql.Date(currentUtilDate.getTime());
+        try {
+            cb = entityManager.createNamedQuery("CarteBancaire.findByClientId",CarteBancaire.class)
+                    .setParameter("idClient",idClient)
+                    .getSingleResult();
+
+            if(cb==null){
+                UtilsFonction.messageError("nous n'avons pas pu trouvez votre carte","carte introuvable");
+                return false;
+            }
+            if(cb.getStatutCarte()==0){
+                UtilsFonction.messageError("vous ne pouvez pas faire ce paiement ","carte bloquée");
+                return isDone;
+            }
+            if(cb.getSoldeCarte()<=0){
+                UtilsFonction.messageError("impossible de faire ce paiement ","solde null" );
+                return isDone;
+            }
+            if(cb.getSoldeCarte()<montant){
+                UtilsFonction.messageError("solde insuffisant","impossible de faire le paiement ");
+                return isDone;
+            }
+            if(!UtilsFonction.hashPassword(pin,cb.getSalt()).equals(cb.getPin())){
+                UtilsFonction.messageError("le mot de passe que vous avez saisie est incorrect","mot de passe incorrect");
+                return isDone;
+            }
+
+            entityManager.getTransaction().begin();
+
+            transaction.setCarteBancaire(cb);
+            transaction.setMontant(montant);
+            transaction.setDate_transaction(currentSqlDate);
+            transaction.setStatus("en attente de confirmation");
+            transaction.setOperation("paiement");
+            codeTransaction = UtilsFonction.generateSomeCode(10);
+            transaction.setCodeTransaction(codeTransaction);
+            transaction.setCodeBeneficiare(beneficiate);
+            entityManager.persist(transaction);
+            entityManager.flush();
+
+
+            List<Transaction> tr = entityManager.createNamedQuery("Transaction.findByCodeTransaction",Transaction.class)
+                    .setParameter("codeTransaction",codeTransaction)
+                    .getResultList();
+
+            if(tr.isEmpty()){
+                logger.error("erreur lors de la recuperation de la transaction Paiement");
+                UtilsFonction.messageError("impossible de trouver la transaction","erreur");
+                return isDone;
+
+            }else {
+                authTransaction.setTransaction(tr.get(0));
+                authTransaction.setStatut("en attente");
+                codeOTP = UtilsFonction.generateSomeCode(6);
+                authTransaction.setCode_OTP(codeOTP);
+                authTransaction.setDate_generarion(currentSqlDate);
+                entityManager.persist(authTransaction);
+                entityManager.flush();
+                Client c = entityManager.find(Client.class, idClient);
+
+
+                UtilsFonction.sendMessageBYMail("le code otp de la transaction "+codeOTP,c.getEmail());
+
+                entityManager.getTransaction().commit();
+                isDone  = true;
+
+            }
+
+        } catch (Exception e) {
+            logger.error("l'erreur "+" "+e.getStackTrace().toString() +" est survenue lors du paiment");
+        }
+        return isDone;
+    }
+
+    @Override
+    public Boolean confirmerPaiement(Long idClient, String codeOTP) {
+        boolean isDone = false;
+        List<CarteBancaire> cb;
+        Transaction transaction;
+        CarteBancaire cbx;
+        AuthTransaction authTransactionx;
+        EntityManager entityManager = JpaUtils.getEm();
+        List<AuthTransaction> authTransaction = entityManager.createNamedQuery("AuthTransaction.findByOTPCode",AuthTransaction.class)
+                .setParameter("codeOTP",codeOTP)
+                .getResultList();
+        if(authTransaction.isEmpty()){
+            logger.error("aucune correspondance pour le code OTP "+codeOTP);
+        }else {
+            cb = entityManager.createNamedQuery("CarteBancaire.findByClientId",CarteBancaire.class)
+                    .setParameter("idClient",idClient)
+                    .getResultList();
+
+            if(cb.isEmpty()){
+                logger.error("aucune carte bancaire trouvée pour la verification CarteBancaireService");
+            }else {
+
+                cbx = cb.get(0);
+                authTransactionx = authTransaction.get(0);
+                entityManager.getTransaction().begin();
+                double solde = cbx.getSoldeCarte()-authTransactionx.getTransaction().getMontant();
+                if(solde<0){
+                    UtilsFonction.messageError("impossible de faire ce retrait ","le solde ne doit pas être inférieur a zéro");
+                    return isDone;
+                }
+                cbx.setSoldeCarte(solde);
+                authTransactionx.setStatut("validée");
+                authTransactionx.getTransaction().setStatus("validée");
+                entityManager.merge(authTransactionx);
+                entityManager.merge(cbx);
+                entityManager.flush();
+                entityManager.getTransaction().commit();
+                Client c =  entityManager.find(Client.class, idClient);
+
+                UtilsFonction.sendMessageBYMail("votre paiement a bien été effectué votre nouveau solde est de  : " +solde,c.getEmail());
+                isDone = true;
+
+
+
+
             }
         }
         return isDone;
