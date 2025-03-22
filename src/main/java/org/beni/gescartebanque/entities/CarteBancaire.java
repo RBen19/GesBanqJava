@@ -13,6 +13,12 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_carte_bancaire")
+@NamedQueries({
+        @NamedQuery(name = "CarteBancaire.findByClientId",
+                query = "SELECT c FROM CarteBancaire c WHERE c.client.idCLient = :idClient"),
+        @NamedQuery(name = "CarteBancaire.findByNumeroCarte",
+                query = "SELECT c FROM CarteBancaire c WHERE c.numeroCarte = :numeroCarte")
+})
 public class CarteBancaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

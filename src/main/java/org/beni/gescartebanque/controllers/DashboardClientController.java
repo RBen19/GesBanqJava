@@ -58,6 +58,14 @@ public class DashboardClientController implements Initializable {
     @FXML
     void btn_retrait_argent(ActionEvent event) {
 
+        try
+        {
+            HelloApplication.change(new Stage(),"retrait");
+        } catch (Exception e) {
+            logger.error("erreur lors du changement de fenetre entre dashboardclient et retrait argent{}",e.getMessage());
+
+        }
+
     }
 
     @Override

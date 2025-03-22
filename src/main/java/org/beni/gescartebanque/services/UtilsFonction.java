@@ -3,6 +3,7 @@ package org.beni.gescartebanque.services;
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+import javafx.scene.control.Alert;
 import org.beni.gescartebanque.HelloApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -186,5 +187,40 @@ public class UtilsFonction {
         cardNumber.append(checkDigit);
 
         return cardNumber.toString();
+    }
+
+    public static void messageError(String message,String title) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    public static void InfoMessage(String message,String title) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+    public static  String generateSomeCode(int length) {
+        String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        int OTP_LENGTH = length;
+        SecureRandom random = new SecureRandom();
+        StringBuilder otp = new StringBuilder();
+           try {
+
+
+               for (int i = 0; i < OTP_LENGTH; i++) {
+                   int index = random.nextInt(CHARACTERS.length());
+                   otp.append(CHARACTERS.charAt(index));
+               }
+
+
+           } catch (Exception e) {
+               logger.error("erreur lors de la generation de otp de transaction",e.getMessage());
+           }
+
+        return otp.toString();
+
     }
 }
