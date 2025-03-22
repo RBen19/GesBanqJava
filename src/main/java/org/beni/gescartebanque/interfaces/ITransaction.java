@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ITransaction {
     List<Transaction> getAllTransaction();
+    List<Transaction> getTransationForClient(Long id);
 }

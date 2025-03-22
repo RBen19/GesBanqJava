@@ -66,11 +66,11 @@ public class loginController {
         }else {
             if(txt_username.getText().startsWith("@ebk") && txt_username.getText().endsWith("@dk")) {
                 // utilisateur gestionnaire admin etc...
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Erreur");
-                alert.setHeaderText(null);
-                alert.setContentText("admin");
-                alert.showAndWait();
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("Erreur");
+//                alert.setHeaderText(null);
+//                alert.setContentText("admin");
+//                alert.showAndWait();
 
                 if(RessourceDAO.UserDao().GetUtilisateur(txt_username.getText(),txt_password.getText())!=null) {
 
@@ -90,10 +90,10 @@ public class loginController {
               client =   RessourceDAO.ClientDao().connexionClient(txt_username.getText(),txt_password.getText());
               if(client!=null) {
                   Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
-                  alert2.setTitle("Erreur");
-                  alert2.setHeaderText(null);
-                  alert2.setContentText("client");
-                  alert2.showAndWait();
+//                  alert2.setTitle("Erreur");
+//                  alert2.setHeaderText(null);
+//                  alert2.setContentText("client");
+//                  alert2.showAndWait();
 
                   try {
                       HelloApplication.change(new Stage(),"dashboardClient");

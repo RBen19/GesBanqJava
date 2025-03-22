@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="729.0" prefWidth="923.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.beni.gescartebanque.controllers.LitigesCOntroller">
+   <children>
+      <Label layoutX="296.0" layoutY="92.0" prefHeight="43.0" prefWidth="189.0" text="Litiges" />
+      <TextField fx:id="txt_codeTransaction" layoutX="289.0" layoutY="146.0" />
+      <Label layoutX="130.0" layoutY="208.0" text="Litiges" />
+      <TextArea fx:id="txt_litige" layoutX="110.0" layoutY="265.0" prefHeight="200.0" prefWidth="714.0" />
+      <Button layoutX="416.0" layoutY="546.0" mnemonicParsing="false" onAction="#sendLitige" prefHeight="26.0" prefWidth="138.0" text="Valider" />
+   </children>
+</AnchorPane>
