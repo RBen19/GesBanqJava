@@ -40,7 +40,7 @@ public class HelloApplication extends Application {
         System.out.println(hashedPassword);
 
        // UtilsFonction.sendUsernameAndPasswordByMail("RBEN19","passer","bonmerciel@gmail.com");
-
+       // RessourceDAO.CarteBancaireDao().confirmerRetrait(2L,"4v5SOf");
         JpaUtils.getEm();
         launch();
     }

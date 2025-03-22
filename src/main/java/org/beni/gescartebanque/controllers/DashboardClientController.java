@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.beni.gescartebanque.HelloApplication;
 import org.beni.gescartebanque.Ressource;
+import org.beni.gescartebanque.RessourceDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,6 +54,15 @@ public class DashboardClientController implements Initializable {
     @FXML
     void btn_historique(ActionEvent event) {
 
+    }
+
+    @FXML
+    void btn_gerer_ma_carte(ActionEvent event) {
+       try{
+           HelloApplication.change(new Stage(),"gererMaCarte");
+       } catch (Exception e) {
+           logger.error("erreur lors du changement de screen entre dashboardclient et GererMaCarte {}",e.getMessage());
+       }
     }
 
     @FXML
