@@ -12,6 +12,7 @@ import org.beni.gescartebanque.interfaces.ICarteBancaire;
 import org.beni.gescartebanque.services.JpaUtils;
 import org.beni.gescartebanque.services.UtilsFonction;
 import org.slf4j.LoggerFactory;
+import org.slf4j.helpers.Util;
 
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -25,6 +26,8 @@ public class CarteBancaireService implements ICarteBancaire {
     public Boolean geberCarteBancaire(Long idClient,String pin) {
         boolean isCreated = false;
 
+
+
         EntityManager entityManager = JpaUtils.getEm();
         Client c =  entityManager.find(Client.class, idClient);
         Date currentDate = new Date(System.currentTimeMillis());
@@ -33,6 +36,14 @@ public class CarteBancaireService implements ICarteBancaire {
         calendar.add(Calendar.YEAR, 1);
         Date oneYearLater = new Date(calendar.getTimeInMillis());
         String salt = UtilsFonction.generateSalt();
+
+        List<CarteBancaire> verifCB = entityManager.createNamedQuery("CarteBancaire.findByClientId",CarteBancaire.class)
+                .setParameter("idClient",idClient)
+                .getResultList();
+        if(!verifCB.isEmpty()){
+            UtilsFonction.messageError("vous disposez déjà d'une carte","impossible");
+            return false;
+        }
 
         CarteBancaire cb = new CarteBancaire();
 

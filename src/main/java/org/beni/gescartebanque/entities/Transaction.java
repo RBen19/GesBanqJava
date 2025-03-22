@@ -39,4 +39,6 @@ public class Transaction {
     private CarteBancaire carteBancaire;
     @Column(length = 200,unique = true)
     private String codeTransaction;
+    @Column(length = 200)
+    private String codeBeneficiare;
 }
